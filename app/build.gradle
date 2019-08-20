@@ -15,8 +15,10 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "BASE_URL", "\"https://api.twitch.tv/helix/\"")
+        buildConfigField("String", "API_OAUTH", "\"https://id.twitch.tv/\"")
         buildConfigField("String", "CLIENT_ID", "\"Client-ID\"")
         buildConfigField("String", "KEY_CLIENT_ID", "\"3vei2jegmxt932jdsh0saduhtkgul0\"")
+        buildConfigField("String", "CLIENT_SECRET", "\"v72yqy4dkuzsxduvcql91fjowfl8sl\"")
     }
     buildTypes {
         release {

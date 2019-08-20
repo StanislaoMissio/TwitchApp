@@ -32,7 +32,7 @@ fun provideDefaultOkHttpClient(): OkHttpClient {
 
 fun provideRetrofit(client: OkHttpClient): Retrofit {
     return Retrofit.Builder()
-        .baseUrl(BuildConfig.BASE_URL)
+        .baseUrl(BuildConfig.API_OAUTH)
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
         .build()
