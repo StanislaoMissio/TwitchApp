@@ -1,8 +1,13 @@
-package com.example.projecttwitch
+package com.example.projecttwitch.view
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.projecttwitch.Endpoint
+import com.example.projecttwitch.R
+import com.example.projecttwitch.model.Data
+import com.example.projecttwitch.model.Games
+import com.example.projecttwitch.module.networkModule
 import org.koin.android.ext.android.inject
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin

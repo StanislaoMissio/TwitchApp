@@ -1,5 +1,7 @@
-package com.example.projecttwitch
+package com.example.projecttwitch.module
 
+import com.example.projecttwitch.BuildConfig
+import com.example.projecttwitch.Endpoint
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -18,7 +20,10 @@ fun provideDefaultOkHttpClient(): OkHttpClient {
         .addInterceptor {
             val original = it.request()
             val request = original.newBuilder()
-                .header(BuildConfig.CLIENT_ID, BuildConfig.KEY_CLIENT_ID)
+                .header(
+                    BuildConfig.CLIENT_ID,
+                    BuildConfig.KEY_CLIENT_ID
+                )
                 .build()
             it.proceed(request)
         }

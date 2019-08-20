@@ -1,4 +1,4 @@
-package com.example.projecttwitch
+package com.example.projecttwitch.model
 
 import com.google.gson.annotations.SerializedName
 
