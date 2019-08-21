@@ -17,13 +17,13 @@ interface Endpoint {
     @GET("users")
     fun getUsers(): Call<Data<User>>
 
-    @POST("oauth2/authorize")
+    @POST("oauth2/token")
     fun getOAuth(
         @Query("client_id") clientId: String,
-        @Query("redirect_uri") clientSecret: String,
-        @Query("response_type") grantType: String = "code",
-        @Query("scope") scope: String = "viewing_activity_read+openid",
-        @Query("state") state: String = "c3ab8aa609ea11e793ae92361f002671"
+        @Query("client_secret") clientSecret: String,
+        @Query("code") code: String?,
+        @Query("grant_type") grantType: String = "authorization_code",
+        @Query("redirect_uri") redirectUri: String = "https://localhost/"
     ): Call<OAuth>
 
 }
