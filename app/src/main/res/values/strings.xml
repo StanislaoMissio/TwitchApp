@@ -4,4 +4,5 @@
     <string name="settings">Configurações</string>
     <string name="games">Jogos</string>
     <string name="lives">Lives</string>
+    <string name="empty"></string>
 </resources>

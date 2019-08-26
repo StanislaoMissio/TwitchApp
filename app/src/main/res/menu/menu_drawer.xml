@@ -3,22 +3,27 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-            android:id="@+id/profile"
+            android:id="@+id/action_profile"
             android:icon="@drawable/ic_person_white_24dp"
             android:title="@string/profile"
             app:showAsAction="ifRoom" />
     <item
-            android:id="@+id/config"
+            android:id="@+id/action_config"
             android:icon="@drawable/ic_settings_white_24dp"
             android:title="@string/settings"
             app:showAsAction="ifRoom" />
     <item
-            android:id="@+id/games"
+            android:id="@+id/empty"
+            android:icon="@drawable/empty_item"
+            android:enabled="false"
+            android:title="@string/empty" />
+    <item
+            android:id="@+id/action_games"
             android:icon="@drawable/ic_game_white_24dp"
             android:title="@string/games"
             app:showAsAction="ifRoom" />
     <item
-            android:id="@+id/live"
+            android:id="@+id/action_live"
             android:icon="@drawable/ic_cam_white_24dp"
             android:title="@string/lives"
             app:showAsAction="ifRoom" />
