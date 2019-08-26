@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ProjectTwitch</string>
+    <string name="profile">Perfil</string>
+    <string name="settings">Configurações</string>
+    <string name="games">Jogos</string>
+    <string name="lives">Lives</string>
 </resources>
