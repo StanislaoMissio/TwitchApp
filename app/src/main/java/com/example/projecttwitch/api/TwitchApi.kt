@@ -1,4 +1,4 @@
-package com.example.projecttwitch
+package com.example.projecttwitch.api
 
 import com.example.projecttwitch.model.*
 import retrofit2.Call
@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface TwitchApi {
 
     @GET("games")
-    fun getGames(@Query("name") name: String): Call<Data<Games>>
+    fun getGames(@Query("id") id: String): Call<Data<Games>>
 
     @GET("users")
     fun getUsers(): Call<Data<User>>
