@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         val fragmentConfig = ConfigurationFragment()
         val fragmentGames = GamesFragment()
         val fragmentLives = LiveFragment()
+        var activeFragment = Fragment()
 
         fragmentManager.beginTransaction().add(R.id.fragment_main_container, fragmentLives, "4")
             .hide(fragmentLives).commit()
@@ -34,8 +35,6 @@ class MainActivity : AppCompatActivity() {
         fragmentManager.beginTransaction().add(R.id.fragment_main_container, fragmentProfile, "1")
             .commit()
 
-        var activeFragment = Fragment()
-
         bottom_navigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.action_profile -> {
@@ -43,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                         .hide(activeFragment)
                         .show(fragmentProfile)
                         .commit()
-                    activeFragment = ProfileFragment()
+                    activeFragment = fragmentProfile
                     true
                 }
                 R.id.action_config -> {
@@ -51,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                         .hide(activeFragment)
                         .show(fragmentConfig)
                         .commit()
-                    activeFragment = ConfigurationFragment()
+                    activeFragment = fragmentConfig
                     true
                 }
                 R.id.action_games -> {
@@ -59,15 +58,16 @@ class MainActivity : AppCompatActivity() {
                         .hide(activeFragment)
                         .show(fragmentGames)
                         .commit()
-                    activeFragment = GamesFragment()
+                    activeFragment = fragmentGames
                     true
                 }
                 R.id.action_live -> {
                     fragmentManager.beginTransaction()
                         .hide(activeFragment)
+                        .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_in)
                         .show(fragmentLives)
                         .commit()
-                    activeFragment = LiveFragment()
+                    activeFragment = fragmentLives
                     true
                 }
                 else -> false
