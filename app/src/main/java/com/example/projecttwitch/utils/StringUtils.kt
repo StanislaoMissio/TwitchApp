@@ -23,6 +23,10 @@ class StringUtils {
             val numberFormat = DecimalFormat()
             return numberFormat.format(number)
         }
+
+        fun formatImageLink(link: String): String {
+            return link.substringBefore("-{width}x{height}").plus(".jpg")
+        }
     }
 
 }

@@ -11,6 +11,9 @@ interface TwitchApi {
     @GET("games")
     fun getGames(@Query("id") id: String): Call<Data<Games>>
 
+    @GET("games/top")
+    fun getTopGames(): Call<Data<Games>>
+
     @GET("users")
     fun getUsers(): Call<Data<User>>
 
