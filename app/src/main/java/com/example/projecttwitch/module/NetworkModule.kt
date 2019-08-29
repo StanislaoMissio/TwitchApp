@@ -1,7 +1,7 @@
 package com.example.projecttwitch.module
 
 import com.example.projecttwitch.BuildConfig
-import com.example.projecttwitch.Endpoint
+import com.example.projecttwitch.TwitchApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -38,7 +38,7 @@ fun provideRetrofit(client: OkHttpClient): Retrofit {
         .build()
 }
 
-fun provideEndpoint(retrofit: Retrofit): Endpoint = retrofit.create(Endpoint::class.java)
+fun provideEndpoint(retrofit: Retrofit): TwitchApi = retrofit.create(TwitchApi::class.java)
 
 val interceptor = HttpLoggingInterceptor().apply {
     this.level = HttpLoggingInterceptor.Level.BODY

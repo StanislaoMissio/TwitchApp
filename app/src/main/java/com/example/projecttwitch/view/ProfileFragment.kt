@@ -8,9 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.projecttwitch.R
-import com.example.projecttwitch.model.User
 import com.example.projecttwitch.viewmodel.ProfileViewModel
-import java.lang.Exception
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
 
@@ -24,14 +23,11 @@ class ProfileFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        model = activity?.run {
-            ViewModelProviders.of(this)[ProfileViewModel::class.java]
-        } ?: throw Exception("Invalid Activity")
-        model.getUsers().observe(this, Observer<User> { user ->
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        model = ViewModelProviders.of(this)[ProfileViewModel::class.java]
+        model.users.observe(this, Observer {
+            profile_name.text = it.name
         })
     }
-
 }

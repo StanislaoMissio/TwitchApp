@@ -1,15 +1,12 @@
 package com.example.projecttwitch
 
-import com.example.projecttwitch.model.Data
-import com.example.projecttwitch.model.Games
-import com.example.projecttwitch.model.OAuth
-import com.example.projecttwitch.model.User
+import com.example.projecttwitch.model.*
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
 
-interface Endpoint {
+interface TwitchApi {
 
     @GET("games")
     fun getGames(@Query("name") name: String): Call<Data<Games>>
@@ -25,5 +22,8 @@ interface Endpoint {
         @Query("grant_type") grantType: String = "authorization_code",
         @Query("redirect_uri") redirectUri: String = "https://localhost/"
     ): Call<OAuth>
+
+    @GET("streams")
+    fun getStreams(): Call<Data<Stream>>
 
 }
