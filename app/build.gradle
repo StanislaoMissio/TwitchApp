@@ -1,41 +1,67 @@
-apply plugin: 'com.android.application'
-
-apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
-
-apply plugin: 'kotlin-kapt'
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+}
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    namespace = "com.example.projecttwitch"
+    compileSdkVersion = 32
+
     defaultConfig {
-        applicationId "com.example.projecttwitch"
-        minSdkVersion 23
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        applicationId = "com.example.projecttwitch"
+        minSdk = 23
+        targetSdk = 32
+        versionCode = 1
+        versionName = "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "BASE_URL", "\"https://api.twitch.tv/helix/\"")
-        buildConfigField("String", "API_OAUTH", "\"https://id.twitch.tv/\"")
-        buildConfigField("String", "CLIENT_ID", "\"Client-ID\"")
-        buildConfigField("String", "KEY_CLIENT_ID", "\"3vei2jegmxt932jdsh0saduhtkgul0\"")
-        buildConfigField("String", "CLIENT_SECRET", "\"v72yqy4dkuzsxduvcql91fjowfl8sl\"")
+        vectorDrawables {
+            useSupportLibrary true
+        }
     }
-    dataBinding {
-        enabled = true
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    buildFeatures {
+        compose = true
+        buildConfig = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.4.0'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled = false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", "\"https://api.twitch.tv/helix/\"")
+            buildConfigField("String", "API_OAUTH", "\"https://id.twitch.tv/\"")
+            buildConfigField("String", "CLIENT_ID", "\"Client-ID\"")
+            buildConfigField("String", "KEY_CLIENT_ID", "\"3vei2jegmxt932jdsh0saduhtkgul0\"")
+            buildConfigField("String", "CLIENT_SECRET", "\"v72yqy4dkuzsxduvcql91fjowfl8sl\"")
+        }
+        debug {
+            minifyEnabled = false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", "\"https://api.twitch.tv/helix/\"")
+            buildConfigField("String", "API_OAUTH", "\"https://id.twitch.tv/\"")
+            buildConfigField("String", "CLIENT_ID", "\"Client-ID\"")
+            buildConfigField("String", "KEY_CLIENT_ID", "\"3vei2jegmxt932jdsh0saduhtkgul0\"")
+            buildConfigField("String", "CLIENT_SECRET", "\"v72yqy4dkuzsxduvcql91fjowfl8sl\"")
         }
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.core:core-ktx:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
