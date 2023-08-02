@@ -1,4 +1,4 @@
-package com.example.projecttwitch.model
+package com.example.projecttwitch.data.remote
 
 import com.google.gson.annotations.SerializedName
 
